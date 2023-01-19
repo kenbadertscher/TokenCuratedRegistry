@@ -96,5 +96,9 @@ contract TokenCuratedRegistry {
             );
         }
 
-}
+    function withdrawAllFunds() public {
+        require(msg.sender == owner);
+        msg.sender.transfer(address(this).balance);
+    }
 
+}
